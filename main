@@ -1,0 +1,17 @@
+//Self assignment
+//Create and array of video games with a star rating taken from an input, the user should be able to pick the game and give it a star rating, if the game hasn't been rated yet then create a new index in the array for this game. Create a function to calculate the average star rating for any given video game
+
+// Understand the problem
+// The original arrays need to be empty
+// The user imput must be able to take strings and numbers
+
+
+const gameLibrary = ['Witcher 3', 'Final Fantasy 7', 'Death Stranding', 'Disco Elysium'];
+
+const starRating = [5, 4, 5, 3, 3, 4];
+
+const avgRating = function (starRating) {
+    return starRating / starRating.length;
+}
+
+console.log(avgRating(starRating));
