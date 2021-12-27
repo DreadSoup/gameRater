@@ -1,17 +1,50 @@
 //Self assignment
-//Create and array of video games with a star rating taken from an input, the user should be able to pick the game and give it a star rating, if the game hasn't been rated yet then create a new index in the array for this game. Create a function to calculate the average star rating for any given video game
+//Create a website with pictures and user input boxes. Create an array of video games with a star rating taken from an input, the user should be able to pick the game and give it a star rating, if the game hasn't been rated yet then create a new index in the array for this game. Create a function to calculate the average star rating for any given video game
 
 // Understand the problem
 // The original arrays need to be empty
 // The user imput must be able to take strings and numbers
+// What to do if user inputs jibberish / spelling mistake / clicks without anything in the input fields 
 
+// Sub-problems
+// Create empty array that gets pushed if a user enters a new game
+// Create array for ratings multiple or array within array or object?
+// Create function for average star rating
+// Link start rating to specific game
+// 
 
 const gameLibrary = ['Witcher 3', 'Final Fantasy 7', 'Death Stranding', 'Disco Elysium'];
 
 const starRating = [5, 4, 5, 3, 3, 4];
 
 const avgRating = function (starRating) {
-    return starRating / starRating.length;
+    let sum = 0;
+    for (let i = 0; i < starRating.length; i++) {
+        sum += starRating[i];
+    }
+    return sum / starRating.length;
 }
 
-console.log(avgRating(starRating));
+
+document.querySelector('.rate').addEventListener('click',
+function() {
+
+    const rating = Number (document.querySelector('.rating').value);
+
+    if (rating < 1 || rating > 5) {
+        // message output
+    }
+
+    starRating.push(Number (document.querySelector('.rating').value));
+    document.querySelector('.rating').value = '';
+    document.querySelector('.avg-rating').textContent = Math.trunc(avgRating(starRating));
+    console.log(avgRating(starRating));
+    
+})
+// TO DO
+// Make button not refresh page - DONE
+// Clear text field
+// Don't allow button to add empty strings into the array
+// Need array entry to be number
+
+//console.log(avgRating(starRating));
