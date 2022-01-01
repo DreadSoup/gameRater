@@ -1,0 +1,91 @@
+"use strict";
+//Self assignment
+//Create a website with pictures and user input boxes. Create an array of video games with a star rating taken from an input, the user should be able to pick the game and give it a star rating, if the game hasn't been rated yet then create a new index in the array for this game. Create a function to calculate the average star rating for any given video game
+
+// Understand the problem
+// The original arrays need to be empty
+// The user imput must be able to take strings and numbers
+// What to do if user inputs jibberish / spelling mistake / clicks without anything in the input fields
+
+// Sub-problems
+// Create empty array that gets pushed if a user enters a new game
+// Create array for ratings multiple or array within array or object?
+// Create function for average star rating
+// Link start rating to specific game
+//
+
+// Variable declaration
+const rateButton = document.querySelector(".rate");
+const userRating = document.querySelector(".rating");
+const message = document.querySelector(".message");
+const gameAverage = document.querySelector(".avg-rating");
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const btnCloseModal = document.querySelector(".close-modal");
+const btnsOpenModal = document.querySelectorAll(".show-modal");
+
+// Array declaration
+let starRating = [];
+
+// Object declaration
+const gameLibrary = [
+  "Witcher 3",
+  "Final Fantasy 7",
+  "Death Stranding",
+  "Disco Elysium",
+];
+
+// Function declaration
+const avgRating = function (starRating) {
+  let sum = 0;
+  for (let i = 0; i < starRating.length; i++) {
+    sum += starRating[i];
+  }
+  return sum / starRating.length;
+};
+
+const rateGame = function () {
+  const rating = Number(userRating.value);
+  if (rating >= 1 && rating <= 5) {
+    message.textContent = "Enter your rating out of 5";
+    starRating.push(Number(userRating.value));
+    userRating.value = "";
+    gameAverage.textContent = Math.trunc(avgRating(starRating));
+  } else message.textContent = "Please choose between 1 and 5";
+
+  console.log(starRating);
+  console.log(avgRating(starRating));
+};
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
+// Click event listeners
+rateButton.addEventListener("click", rateGame);
+
+// Modal loop
+for (let i = 0; i < btnsOpenModal.length; i++)
+  btnsOpenModal[i].addEventListener("click", openModal);
+
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
+// TO DO
+// Make button not refresh page - DONE
+// Clear text field
+// Don't allow button to add empty strings into the array
+// Need array entry to be number
