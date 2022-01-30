@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Stubs Video Game Blog</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <img
+          src="img/dsLogo.png"
+          alt="DreadSoup logo"
+          class="nav__logo"
+          id="logo"
+          designer="Stubs"
+          date-version-number="1.0"
+        />
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#witcher--section">Witcher 3</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#ff7r--section">FF7R</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#disco--section">Disco Elysium</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Sign In</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header__title">
+        <h1>
+          <span class="highlight1 highlight">Play.</span>
+          <span class="highlight2 highlight">Enjoy.</span><br />
+          <span class="highlight3 highlight">Rate.</span>
+          <span class="highlight4 highlight">Engage.</span>
+        </h1>
+        <h4></h4>
+        <h4>Play the games you love, engage in the community you build</h4>
+      </div>
+    </header>
+    <section class="section" id="witcher--section">
+      <div class="section__title">
+        <img src="img/witcher.jpg" alt="Wolf Medallion" class="section__img" />
+        <h1><br />Witcher 3 : The Wild Hunt</h1>
+      </div>
+    </section>
+    <section class="section" id="ff7r--section">
+      <div class="section__title">
+        <img src="img/ff7r.jpg" alt="Buster Sword" class="section__img" />
+        <h1><br />Final Fantasy 7 : Remake</h1>
+      </div>
+    </section>
+    <section class="section" id="disco--section">
+      <div class="section__title">
+        <img src="img/disco.jpg" alt="Harry and Kim" class="section__img" />
+        <h1><br />Disco Elysium</h1>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
